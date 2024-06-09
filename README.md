@@ -34,7 +34,7 @@ If you have a revisement to make, please send a pull request, as we will go over
 
 על מנת להשתמש בקובץ כפי שהוא כ-stand alone, הורידו אותו מכאן:
 
-[להןרדת התוכנה](https://github.com/dorigabay/arabic_transliteration/raw/main/dist/Arabic%20Transliteration.exe)
+[להורדת התוכנה](https://github.com/dorigabay/arabic_transliteration/raw/main/dist/Arabic%20Transliteration.exe)
 
 בשימוש ראשון ייתכן ש-Windows יתריע שהקובץ אינו בטוח. כדי לעקוף זאת, לחצו על "מידע נוסף" ולאחר מכן על "הפעל בכל זאת".
 
