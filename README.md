@@ -8,7 +8,9 @@ Please feel free to share any suggestions for improving this tool or enhancing t
 ## Installation
 
 Simply, download the file Arabic_Transliterator.exe, and install it on your computer.
-To use the standalone executable (.exe) file, download it from the [Releases](https://github.com/your_username/arabic-to-hebrew-transcription/releases) section of this repository.
+To use the standalone executable (.exe) file, download it from here:
+
+[DOWNLOAD THE PROGRAM](https://github.com/dorigabay/arabic_transliteration/raw/main/dist/main.exe)
 
 ## Python Script
 
