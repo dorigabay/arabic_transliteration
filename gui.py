@@ -31,7 +31,7 @@ class Transliterator:
         self.status_label.grid(row=3, column=0, columnspan=2)
 
     def open_github_link(self, event):
-        webbrowser.open_new("https://github.com/dorigabay/single_ant_force_detector")
+        webbrowser.open_new("https://github.com/dorigabay/arabic_transliteration")
 
     def transliterate(self):
         arabic_text = self.arabic_entry.get()
