@@ -1,4 +1,4 @@
-![Program demonstration](dist/demo)
+![Program demonstration](dist/demo.png)
 # Arabic to Hebrew Transliteration
 
 This Python project converts Arabic text into Hebrew letters to help Hebrew readers pronounce Arabic words accurately.
