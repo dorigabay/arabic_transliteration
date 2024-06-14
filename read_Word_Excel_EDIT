@@ -1,0 +1,48 @@
+pip install pandas openpyxl
+pip install python-docx
+
+
+import pandas as pd
+
+# Define a function to modify the text
+def modify_text(text):
+    # Example modification: convert text to uppercase
+    return text.upper() if isinstance(text, str) else text
+
+# Load the Excel file
+file_path = 'path/to/your/excel_file.xlsx'
+df = pd.read_excel(file_path)
+
+# Apply the function to each cell
+df = df.applymap(modify_text)
+
+# Save the modified DataFrame back to an Excel file
+output_path = 'path/to/modified_excel_file.xlsx'
+df.to_excel(output_path, index=False, engine='openpyxl')
+
+
+
+from docx import Document
+
+# Define a function to modify the text
+def modify_text(text):
+    # Example modification: convert text to uppercase
+    return text.upper()
+
+# Load the Word document
+file_path = 'path/to/your/word_file.docx'
+doc = Document(file_path)
+
+# Iterate through each paragraph and run
+for para in doc.paragraphs:
+    para.text = modify_text(para.text)
+
+# Iterate through each table and cell
+for table in doc.tables:
+    for row in table.rows:
+        for cell in row.cells:
+            cell.text = modify_text(cell.text)
+
+# Save the modified document
+output_path = 'path/to/modified_word_file.docx'
+doc.save(output_path)
