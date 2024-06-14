@@ -100,3 +100,63 @@ load_button.pack(pady=20)
 # Run the application
 root.mainloop
 
+
+import tkinter as tk
+from tkinter import filedialog, messagebox, ttk
+import pandas as pd
+from docx import Document
+import time
+
+def modify_text(text):
+    return text.upper() if isinstance(text, str) else text
+
+def process_excel(file_path, progress_var, progress_bar):
+    df = pd.read_excel(file_path)
+    total_cells = df.size
+    processed_cells = 0
+
+    for i in range(df.shape[0]):
+        for j in range(df.shape[1]):
+            df.iat[i, j] = modify_text(df.iat[i, j])
+            processed_cells += 1
+            progress_var.set((processed_cells / total_cells) * 100)
+            progress_bar.update_idletasks()
+            time.sleep(0.001)  # Simulate processing time
+
+    output_path = filedialog.asksaveasfilename(defaultextension=".xlsx", filetypes=[("Excel files", "*.xlsx")])
+    if output_path:
+        df.to_excel(output_path, index=False, engine='openpyxl')
+        messagebox.showinfo("Success", f"File saved as {output_path}")
+
+def process_word(file_path, progress_var, progress_bar):
+    doc = Document(file_path)
+    total_elements = len(doc.paragraphs) + sum(len(table.rows) * len(table.columns) for table in doc.tables)
+    processed_elements = 0
+
+    for para in doc.paragraphs:
+        para.text = modify_text(para.text)
+        processed_elements += 1
+        progress_var.set((processed_elements / total_elements) * 100)
+        progress_bar.update_idletasks()
+        time.sleep(0.001)  # Simulate processing time
+
+    for table in doc.tables:
+        for row in table.rows:
+            for cell in row.cells:
+                cell.text = modify_text(cell.text)
+                processed_elements += 1
+                progress_var.set((processed_elements / total_elements) * 100)
+                progress_bar.update_idletasks()
+                time.sleep(0.001)  # Simulate processing time
+
+    output_path = filedialog.asksaveasfilename(defaultextension=".docx", filetypes=[("Word files", "*.docx")])
+    if output_path:
+        doc.save(output_path)
+        messagebox.showinfo("Success", f"File saved as {output_path}")
+
+def load_file():
+    file_path = filedialog.askopenfilename(filetypes=[("Excel files", "*.xlsx"), ("Word files", "*.docx")])
+    if file_path:
+        progress_var.set(0)
+        progress_bar.grid(row=
+
