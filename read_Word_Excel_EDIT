@@ -46,3 +46,57 @@ for table in doc.tables:
 # Save the modified document
 output_path = 'path/to/modified_word_file.docx'
 doc.save(output_path)
+
+
+
+#GUI
+import tkinter as tk
+from tkinter import filedialog, messagebox
+import pandas as pd
+from docx import Document
+
+def modify_text(text):
+    return text.upper() if isinstance(text, str) else text
+
+def process_excel(file_path):
+    df = pd.read_excel(file_path)
+    df = df.applymap(modify_text)
+    output_path = filedialog.asksaveasfilename(defaultextension=".xlsx", filetypes=[("Excel files", "*.xlsx")])
+    if output_path:
+        df.to_excel(output_path, index=False, engine='openpyxl')
+        messagebox.showinfo("Success", f"File saved as {output_path}")
+
+def process_word(file_path):
+    doc = Document(file_path)
+    for para in doc.paragraphs:
+        para.text = modify_text(para.text)
+    for table in doc.tables:
+        for row in table.rows:
+            for cell in row.cells:
+                cell.text = modify_text(cell.text)
+    output_path = filedialog.asksaveasfilename(defaultextension=".docx", filetypes=[("Word files", "*.docx")])
+    if output_path:
+        doc.save(output_path)
+        messagebox.showinfo("Success", f"File saved as {output_path}")
+
+def load_file():
+    file_path = filedialog.askopenfilename(filetypes=[("Excel files", "*.xlsx"), ("Word files", "*.docx")])
+    if file_path:
+        if file_path.endswith('.xlsx'):
+            process_excel(file_path)
+        elif file_path.endswith('.docx'):
+            process_word(file_path)
+        else:
+            messagebox.showerror("Error", "Unsupported file type")
+
+# Create the main window
+root = tk.Tk()
+root.title("File Processor")
+
+# Create and place the button
+load_button = tk.Button(root, text="Load File", command=load_file)
+load_button.pack(pady=20)
+
+# Run the application
+root.mainloop
+
