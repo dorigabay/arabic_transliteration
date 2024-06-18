@@ -13,7 +13,7 @@ Please feel free to share any suggestions for improving this tool or enhancing t
 
 To use the standalone executable (.exe) file, download it from here:
 
-[DOWNLOAD THE PROGRAM](https://github.com/dorigabay/arabic_transliteration/raw/main/dist/Arabic%20Transliteration.exe)
+[DOWNLOAD THE PROGRAM](https://github.com/dorigabay/arabic_transliteration/raw/main/dist/Arabic%20Transliterator.exe)
 
 When you first use the program, Windows may warn you that the file is not safe. 
 To bypass this, click "More info" and then select "Run anyway".
@@ -38,7 +38,7 @@ If you have a revisement to make, please send a pull request, as we will go over
 
 על מנת להשתמש בקובץ כפי שהוא כ-stand alone, הורידו אותו מכאן:
 
-[להורדת התוכנה](https://github.com/dorigabay/arabic_transliteration/raw/main/dist/Arabic%20Transliteration.exe)
+[להורדת התוכנה](https://github.com/dorigabay/arabic_transliteration/raw/main/dist/Arabic%20Transliterator.exe)
 
 בשימוש ראשון ייתכן ש-Windows יתריע שהקובץ אינו בטוח. כדי לעקוף זאת, לחצו על "מידע נוסף" ולאחר מכן על "הפעל בכל זאת".
 
